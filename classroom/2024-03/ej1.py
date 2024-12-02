@@ -17,6 +17,12 @@
 1111 15
 """
 def ToBinary(num):
-    pass
+    restos = []
+    cociente = num
+    while int(cociente) > 0:
+        resto = cociente % 2
+        cociente = cociente // 2
+        restos.append(resto)
+    return restos[::-1]
 
-print(ToBinary(7))
+print(ToBinary(13))
