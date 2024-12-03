@@ -16,7 +16,14 @@
 1110 14
 1111 15
 """
-def InverseString(palabra):
-    reversed = palabra[::-1]
-    print(reversed)
-print(InverseString("arbolito"))
+def ToBinary(num):
+    resultado = []
+    cociente = num
+
+    while cociente > 0:
+        resto = cociente % 2
+        cociente = cociente // 2
+        resultado.append(resto)
+    return resultado[::-1]
+
+print(ToBinary(7))
