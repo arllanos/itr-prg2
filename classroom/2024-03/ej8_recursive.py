@@ -11,4 +11,4 @@ def collatz(num):
         return collatz((3*num) + 1)
 
 r = collatz(22)
-# print(r)
+print(f"ultimo: {r}")
