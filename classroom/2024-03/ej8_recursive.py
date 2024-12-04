@@ -1,5 +1,3 @@
-
-
 def collatz(num):
     print(num)
     # condicion de corte
