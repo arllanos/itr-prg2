@@ -1,16 +1,16 @@
 # (4 * (10**1)) + ( 2*(10**0))
 
 # input
-num_decimal = 101010
+numero = 101010
 base = 2
 
 # algoritmo
-i = len(str(num_decimal))-1 # 5
+exponente = len(str(numero))-1 # 5
 resultado = 0
-for d in str(num_decimal):
-    termino = (int(d) * (base**i))
-    print(f"{d} * {base}^{i} = {termino}")
-    i = i - 1
+for d in str(numero):
+    termino = int(d) * (base**exponente)
+    print(f"{d} * {base}^{exponente} = {termino}")
+    exponente = exponente - 1
     resultado = resultado + termino
 
 print(resultado)
