@@ -1,24 +1,22 @@
-import pprint
-
 def PedirDatos():
     c = input("ingresar cantidad de sublistas: ")
     c = int(c)
-    print(c) 
-    sublistas = []
+    sublistas =  []
     for _ in range(c):
-        elementos = []
+        elemento = []
         e = 0
         while e != -1:
             e = input("ingrese elementos de la sublista (-1 para finalizar): ")
             e = int(e)
             if e != -1:
-                elementos.append(e)
+                elemento.append(e)
             else:
-                print(f"sublista finalizada: {elementos}")
+                print(f"sublista terminada: {elemento}")
                 break
-        sublistas.append(elementos)
+        sublistas.append(elemento)
     return sublistas
-            
+
+
 def UniqueValues(sublistas):
     anotador = {}
 
@@ -43,9 +41,10 @@ def CommonValues(lista_de_listas):
     # Tomamos la primera sublista como referencia
     elementos_comunes = []
     for elemento in lista_de_listas[0]:
-        print(lista_de_listas[0])
+        print(f"lista_de_listas[0]: {lista_de_listas[0]} / elemento {elemento}")
         es_comun = True
         for sublista in lista_de_listas[1:]:
+            print(f"sublista: {sublista}")
             if elemento not in sublista:
                 es_comun = False
                 break
@@ -55,11 +54,12 @@ def CommonValues(lista_de_listas):
     return elementos_comunes
 
 
-sublistas = [[1,2,3], [2,3,4], [3,4,5]]
-# sublistas = pedir_datos()
+# sublistas = [[1,2,3], [2,3,4], [3,4,5]]
+# sublistas = [[1,2,3], [3,4,5], [3,6,7]]
+sublistas = PedirDatos()
 
-u = UniqueValues(sublistas)
-print(u)
+# u = UniqueValues(sublistas)
+# print(u)
 
 c = CommonValues(sublistas)
 print(c)
