@@ -2,21 +2,47 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [board, setBoard] = useState(Array(3).fill(null).map(() => Array(3).fill(null)))
+  const [board, setBoard] = useState([[null, null, null], [null, null, null], [null, null, null]])
+
+  const handleCellClick = (rowIndex, cellIndex) => {
+    // si la celda ya está ocupada, no hacemos nada
+    if (board[rowIndex][cellIndex] !== null) return;
+
+    // actualizar el tablero con un movimiento (por ahora marcamos con 'X')
+    // logica: devuelve la misma matriz modificada en la coordenada donde se hizo click 
+    // const x = 0; const y = 2
+    // board.map((row, rIndex) => row.map((cell, cIndex) => rIndex === x && cIndex === y ? 'X' : cell))
+    const newBoard = board.map((row, rIndex) =>
+      row.map((cell, cIndex) =>
+        rIndex === rowIndex && cIndex === cellIndex ? 'X' : cell
+      )
+    );
+
+    setBoard(newBoard); // actualizamos el estado del tablero
+  };
 
   return (
     <>
       <h1>Ta-Te-Ti</h1>
-      <div className='board'>
-        {board.map((row, rowIndex) => (
-            <div key={rowIndex} className='row'>
-              {row.map((cell, cellIndex) => (
-                <button key={cellIndex} className='celda'>
-                  {cell}
-                </button>
-              ))}
-            </div>
-        ))}
+      <div className="board">
+        {/* Fila 1 */}
+        <div className="row">
+          <button className="celda" onClick={() => handleCellClick(0, 0)}>{board[0][0]}</button>
+          <button className="celda" onClick={() => handleCellClick(0, 1)}>{board[0][1]}</button>
+          <button className="celda" onClick={() => handleCellClick(0, 2)}>{board[0][2]}</button>
+        </div>
+        {/* Fila 2 */}
+        <div className="row">
+          <button className="celda" onClick={() => handleCellClick(1, 0)}>{board[1][0]}</button>
+          <button className="celda" onClick={() => handleCellClick(1, 1)}>{board[1][1]}</button>
+          <button className="celda" onClick={() => handleCellClick(1, 2)}>{board[1][2]}</button>
+        </div>
+        {/* Fila 3 */}
+        <div className="row">
+          <button className="celda" onClick={() => handleCellClick(2, 0)}>{board[2][0]}</button>
+          <button className="celda" onClick={() => handleCellClick(2, 1)}>{board[2][1]}</button>
+          <button className="celda" onClick={() => handleCellClick(2, 2)}>{board[2][2]}</button>
+        </div>
       </div>
     </>
   )
