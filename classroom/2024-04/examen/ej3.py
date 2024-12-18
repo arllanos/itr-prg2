@@ -8,12 +8,15 @@ def isPrime(num):
 
 def sumValues(matriz):
     resultado = 0
-    # for x, fila in enumerate(matriz):
+    i = 0
     for fila in matriz:
-        # for y, numero in enumerate(fila):
+        j = 0
         for numero in fila:
-            if (numero) % 2 != 0 and isPrime(numero):
+            if (i + j) % 2 != 0 and isPrime(numero):
+                print(numero)
                 resultado = resultado + numero
+            j = j + 1
+        i = i + 1
     return resultado
 
 matriz = [
