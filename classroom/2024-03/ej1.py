@@ -24,6 +24,7 @@ def ToBinary(num):
         resto = cociente % 2
         cociente = cociente // 2
         resultado.append(resto)
+
     return resultado[::-1]
 
-print(ToBinary(7))
+print(ToBinary(13))
