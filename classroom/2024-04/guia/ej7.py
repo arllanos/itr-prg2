@@ -1,13 +1,12 @@
 def averageKeys(d):
-    lista = list(d)  # ['a', 'b' , 'c']
     promedios  = {}
     
-    for k in lista:
+    for k in d:
         resultado = 0
         fila = d[k]
         for e in fila:
             resultado = resultado + e
-            promedio = resultado / len(lista)
+            promedio = resultado / len(fila)
             promedios[k] = promedio
     return promedios
         
